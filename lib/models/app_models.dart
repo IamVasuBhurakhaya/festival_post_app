@@ -1,31 +1,34 @@
+import 'package:flutter/material.dart';
+
 class AppModels {
-  String quote, author, category, popularity;
-  int quotes_like, quotes_share;
+  String name, description, image;
+  List<String> frame;
+  List<String> quotes;
+  List<String> english_quotes;
 
   AppModels(
-    this.quote,
-    this.author,
-    this.category,
-    this.quotes_like,
-    this.quotes_share,
-    this.popularity,
+    this.name,
+    this.description,
+    this.image,
+    this.frame,
+    this.quotes,
+    this.english_quotes,
   );
 
   factory AppModels.fromMap({required Map data}) => AppModels(
-        data['quote'],
-        data['author'],
-        data['category'],
-        data['quotes_like'],
-        data['quotes_share'],
-        data['popularity'],
+        data['name'],
+        data['description'],
+        data['image'],
+        data['frame'],
+        data['quotes'],
+        data['english_quotes'],
       );
 
   Map<String, dynamic> get toMap => {
-        'quote': quote,
-        'author': author,
-        'category': category,
-        'quotes_like': quotes_like,
-        'quotes_share': quotes_share,
-        'popularity': popularity,
+        'name': name,
+        'description': description,
+        'image': image,
+        'frame': frame,
+        'quotes': quotes,
       };
 }
