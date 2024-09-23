@@ -59,10 +59,10 @@ class _DetailPageState extends State<DetailPage> {
             icon: const Icon(Icons.save),
             tooltip: 'Save',
             onPressed: () {
-              // Implement your save functionality here
-              // For example, save settings or data to a database
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Settings saved!')),
+                const SnackBar(
+                  content: Text('Settings saved!'),
+                ),
               );
             },
           ),
@@ -115,7 +115,6 @@ class _DetailPageState extends State<DetailPage> {
                               image: AssetImage(bgImage), fit: BoxFit.fill),
                     ),
                   ),
-                  // Draggable Festive Name Positioned
                   Positioned(
                     left: festiveNamePosition.dx,
                     top: festiveNamePosition.dy,
@@ -131,21 +130,17 @@ class _DetailPageState extends State<DetailPage> {
                       child: Text(
                         "Happy ${festive.name}",
                         style: TextStyle(
-                          fontFamily: festivalFonts, // Selected font family
-                          color: festivalFontColor, // Selected font color
-                          fontSize: festivalNameCounter
-                              .toDouble(), // Font size based on counter
-                          fontWeight: isFBold
-                              ? FontWeight.bold
-                              : FontWeight.normal, // Bold functionality
-                          fontStyle: isFItalic
-                              ? FontStyle.italic
-                              : FontStyle.normal, // Italic functionality
+                          fontFamily: festivalFonts,
+                          color: festivalFontColor,
+                          fontSize: festivalNameCounter.toDouble(),
+                          fontWeight:
+                              isFBold ? FontWeight.bold : FontWeight.normal,
+                          fontStyle:
+                              isFItalic ? FontStyle.italic : FontStyle.normal,
                         ),
                       ),
                     ),
                   ),
-                  // Draggable Quote Text Positioned inside the Stack
                   Positioned(
                     left: quotePosition.dx,
                     top: quotePosition.dy,
@@ -166,9 +161,8 @@ class _DetailPageState extends State<DetailPage> {
                             fontFamily: quotesFont,
                             color: quotesFontColor,
                             fontSize: quotesCounter.toDouble(),
-                            fontWeight: isQBold
-                                ? FontWeight.bold
-                                : FontWeight.normal, // Bold functionality
+                            fontWeight:
+                                isQBold ? FontWeight.bold : FontWeight.normal,
                             fontStyle:
                                 isQItalic ? FontStyle.italic : FontStyle.normal,
                           ),
@@ -182,8 +176,6 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
               const SizedBox(height: 15),
-
-              // Toggle Button Row for different components
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -195,8 +187,7 @@ class _DetailPageState extends State<DetailPage> {
                             horizontal: 16, vertical: 12),
                         elevation: 5, // Shadow effect
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(30), // Rounded corners
+                          borderRadius: BorderRadius.circular(30),
                         ),
                       ),
                       onPressed: () {
@@ -210,7 +201,7 @@ class _DetailPageState extends State<DetailPage> {
                       },
                       child: const Text("Color"),
                     ),
-                    SizedBox(width: 10), // Spacing between buttons
+                    SizedBox(width: 10),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
@@ -297,10 +288,7 @@ class _DetailPageState extends State<DetailPage> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 15),
-
-              // Show/hide Color Picker
               if (showColorPicker)
                 Column(
                   children: [
@@ -361,7 +349,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10), // Space between buttons
+                    const SizedBox(height: 10),
                     GestureDetector(
                       onTap: () async {
                         Color? pickedColor;
@@ -479,16 +467,12 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ],
                 ),
-
               const SizedBox(height: 15),
-
-              // Show/hide Image Picker
               if (showImage)
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      // Option for no image, just background color
                       GestureDetector(
                         onTap: () {
                           setState(() {
@@ -502,8 +486,7 @@ class _DetailPageState extends State<DetailPage> {
                           decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(20)),
-                            color: Colors
-                                .grey[300], // Lighter grey for a softer look
+                            color: Colors.grey[300],
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.2),
@@ -519,13 +502,12 @@ class _DetailPageState extends State<DetailPage> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black54, // Softer text color
+                                color: Colors.black54,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      // Loop through available images
                       ...img
                           .map(
                             (e) => GestureDetector(
@@ -541,16 +523,13 @@ class _DetailPageState extends State<DetailPage> {
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(20)),
-                                  color: Colors.grey[
-                                      300], // Lighter grey for consistency
+                                  color: Colors.grey[300],
                                   image: DecorationImage(
                                     image: AssetImage(e),
-                                    fit: BoxFit
-                                        .cover, // Cover for better aspect ratio handling
+                                    fit: BoxFit.cover,
                                   ),
                                   border: Border.all(
-                                    color: Colors
-                                        .white, // Light border for separation
+                                    color: Colors.white,
                                     width: 2,
                                   ),
                                   boxShadow: [
@@ -563,8 +542,7 @@ class _DetailPageState extends State<DetailPage> {
                                   ],
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      20), // Ensure image fits within the rounded corners
+                                  borderRadius: BorderRadius.circular(20),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
@@ -581,8 +559,7 @@ class _DetailPageState extends State<DetailPage> {
                                       child: Text(
                                         'Image',
                                         style: TextStyle(
-                                          color: Colors
-                                              .white, // White text for visibility
+                                          color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -596,13 +573,7 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   ),
                 ),
-
               const SizedBox(height: 15),
-
-              // Show/hide Quote Picker
-              // Existing code ...
-
-// Show/hide Quote Picker
               if (showQuote) ...[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -610,8 +581,8 @@ class _DetailPageState extends State<DetailPage> {
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          showHindiQuotes = true; // Show Hindi quotes
-                          showEnglishQuotes = false; // Hide English quotes
+                          showHindiQuotes = true;
+                          showEnglishQuotes = false;
                         });
                       },
                       child: const Text('Show Hindi Quotes'),
@@ -620,15 +591,15 @@ class _DetailPageState extends State<DetailPage> {
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          showHindiQuotes = false; // Hide Hindi quotes
-                          showEnglishQuotes = true; // Show English quotes
+                          showHindiQuotes = false;
+                          showEnglishQuotes = true;
                         });
                       },
                       child: const Text('Show English Quotes'),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20), // Add spacing for better layout
+                const SizedBox(height: 20),
                 if (showHindiQuotes)
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -636,7 +607,7 @@ class _DetailPageState extends State<DetailPage> {
                       children: quote.map((e) {
                         return GestureDetector(
                           onTap: () {
-                            display_quote = e; // Display selected quote
+                            display_quote = e;
                             setState(() {});
                           },
                           child: Container(
@@ -682,7 +653,7 @@ class _DetailPageState extends State<DetailPage> {
                       children: festive.english_quotes.map((e) {
                         return GestureDetector(
                           onTap: () {
-                            display_quote = e; // Display selected quote
+                            display_quote = e;
                             setState(() {});
                           },
                           child: Container(
@@ -722,10 +693,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
               ],
-
               const SizedBox(height: 15),
-
-              // Show/hide Font Adjustment
               if (showFont)
                 Column(
                   children: [
@@ -803,15 +771,11 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ],
                 ),
-
               const SizedBox(height: 15),
-
-              // Show/hide Text Editing
               if (showTextEditing)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Quotes Font Row
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Row(
@@ -845,8 +809,6 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-
-                    // Font Style Customization Buttons
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Row(
@@ -855,7 +817,7 @@ class _DetailPageState extends State<DetailPage> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                isQBold = !isQBold; // Toggle bold style
+                                isQBold = !isQBold;
                               });
                             },
                             child: Text(isQBold ? "Bold On" : "Bold Off"),
@@ -863,7 +825,7 @@ class _DetailPageState extends State<DetailPage> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                isQItalic = !isQItalic; // Toggle italic style
+                                isQItalic = !isQItalic;
                               });
                             },
                             child: Text(isQItalic ? "Italic On" : "Italic Off"),
@@ -871,8 +833,6 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-
-                    // Quotes Font Preview Row
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -894,9 +854,8 @@ class _DetailPageState extends State<DetailPage> {
                           IconButton(
                             onPressed: () {
                               setState(() {
-                                quotesFont =
-                                    "DefaultFont"; // Reset to default font
-                                quotesCounter = 16; // Reset font size
+                                quotesFont = "DefaultFont";
+                                quotesCounter = 16;
                               });
                             },
                             icon: const Icon(Icons.refresh),
@@ -905,10 +864,7 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-
-                    const Divider(thickness: 2), // Divider between sections
-
-                    // Festival Font Row
+                    const Divider(thickness: 2),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Row(
@@ -944,8 +900,6 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-
-                    // Font Style Customization Buttons
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Row(
@@ -954,7 +908,7 @@ class _DetailPageState extends State<DetailPage> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                isFBold = !isFBold; // Toggle bold style
+                                isFBold = !isFBold;
                               });
                             },
                             child: Text(isFBold ? "Bold On" : "Bold Off"),
@@ -962,7 +916,7 @@ class _DetailPageState extends State<DetailPage> {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                isFItalic = !isFItalic; // Toggle italic style
+                                isFItalic = !isFItalic;
                               });
                             },
                             child: Text(isFItalic ? "Italic On" : "Italic Off"),
@@ -970,8 +924,6 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-
-                    // Festival Font Preview
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -993,9 +945,8 @@ class _DetailPageState extends State<DetailPage> {
                           IconButton(
                             onPressed: () {
                               setState(() {
-                                festivalFonts =
-                                    "DefaultFont"; // Reset to default font
-                                festivalNameCounter = 16; // Reset font size
+                                festivalFonts = "DefaultFont";
+                                festivalNameCounter = 16;
                               });
                             },
                             icon: const Icon(Icons.refresh),

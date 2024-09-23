@@ -108,9 +108,7 @@ class _HomePageState extends State<HomePage> {
                                   child: IconButton(
                                     icon: const Icon(Icons.favorite,
                                         color: Colors.red),
-                                    onPressed: () {
-                                      // Add your favorite logic here
-                                    },
+                                    onPressed: () {},
                                   ),
                                 ),
                               ],
@@ -179,9 +177,7 @@ class _HomePageState extends State<HomePage> {
                                       child: IconButton(
                                         icon: const Icon(Icons.favorite,
                                             color: Colors.red),
-                                        onPressed: () {
-                                          // Add your favorite logic here
-                                        },
+                                        onPressed: () {},
                                       ),
                                     ),
                                   ],
@@ -284,8 +280,7 @@ class _HomePageState extends State<HomePage> {
                               width: 25.0,
                               child: Center(
                                 child: Material(
-                                  color: Colors
-                                      .deepOrange, // Changed to festival color
+                                  color: Colors.deepOrange,
                                   type: MaterialType.circle,
                                   child: Container(
                                     width: 8.0 * zoom,

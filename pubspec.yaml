@@ -38,6 +38,7 @@ dependencies:
   flutter_card_swiper: ^7.0.1
   liquid_swipe: ^3.1.0
   flutter_material_color_picker: ^1.2.0
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
